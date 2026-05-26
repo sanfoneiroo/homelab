@@ -1,6 +1,5 @@
 # Documentação Homelab
 
-## Documentação técnica local hospedada no ESP32 File Server. 
 Laboratórios focados em infraestrutura Linux, redes, VPN, DNS, sistemas embarcados e serviços web leves.
 
 ---
