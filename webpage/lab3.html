@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>lab3</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    svg {
+      height: auto;
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      white-space: pre-wrap;
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      border: none;
+      border-top: 1px solid #1a1a1a;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+    /* CSS for syntax highlighting */
+    html { -webkit-text-size-adjust: 100%; }
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      {   }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+    code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+    code span.at { color: #7d9029; } /* Attribute */
+    code span.bn { color: #40a070; } /* BaseN */
+    code span.bu { color: #008000; } /* BuiltIn */
+    code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #4070a0; } /* Char */
+    code span.cn { color: #880000; } /* Constant */
+    code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+    code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+    code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+    code span.dt { color: #902000; } /* DataType */
+    code span.dv { color: #40a070; } /* DecVal */
+    code span.er { color: #ff0000; font-weight: bold; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #40a070; } /* Float */
+    code span.fu { color: #06287e; } /* Function */
+    code span.im { color: #008000; font-weight: bold; } /* Import */
+    code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+    code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+    code span.op { color: #666666; } /* Operator */
+    code span.ot { color: #007020; } /* Other */
+    code span.pp { color: #bc7a00; } /* Preprocessor */
+    code span.sc { color: #4070a0; } /* SpecialChar */
+    code span.ss { color: #bb6688; } /* SpecialString */
+    code span.st { color: #4070a0; } /* String */
+    code span.va { color: #19177c; } /* Variable */
+    code span.vs { color: #4070a0; } /* VerbatimString */
+    code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+</head>
+<body>
+<nav id="TOC" role="doc-toc">
+<ul>
+<li><a href="#lab-port-forward-vpn-esp32-web-server-zerotier"
+id="toc-lab-port-forward-vpn-esp32-web-server-zerotier">Lab Port Forward
+VPN + ESP32 Web Server + ZeroTier</a>
+<ul>
+<li><a href="#objetivos" id="toc-objetivos">Objetivos</a></li>
+<li><a href="#topologia" id="toc-topologia">Topologia</a></li>
+<li><a href="#componentes" id="toc-componentes">Componentes</a></li>
+<li><a href="#objetivo-do-laboratório"
+id="toc-objetivo-do-laboratório">Objetivo do laboratório</a></li>
+</ul></li>
+<li><a href="#arquitetura-utilizada"
+id="toc-arquitetura-utilizada">Arquitetura utilizada</a></li>
+<li><a href="#configuração-do-zerotier-no-roteador"
+id="toc-configuração-do-zerotier-no-roteador">Configuração do ZeroTier
+no roteador</a>
+<ul>
+<li><a href="#objetivo" id="toc-objetivo">Objetivo</a></li>
+<li><a href="#configuração-realizada"
+id="toc-configuração-realizada">Configuração realizada</a></li>
+</ul></li>
+<li><a href="#configuração-do-port-forward"
+id="toc-configuração-do-port-forward">Configuração do Port Forward</a>
+<ul>
+<li><a href="#objetivo-1" id="toc-objetivo-1">Objetivo</a></li>
+<li><a href="#configuração-via-luci"
+id="toc-configuração-via-luci">Configuração via LuCI</a></li>
+</ul></li>
+<li><a href="#funcionamento" id="toc-funcionamento">Funcionamento</a>
+<ul>
+<li><a href="#cliente-remoto" id="toc-cliente-remoto">Cliente
+remoto</a></li>
+<li><a href="#fluxo-da-conexão" id="toc-fluxo-da-conexão">Fluxo da
+conexão</a></li>
+</ul></li>
+<li><a href="#conceitos-estudados"
+id="toc-conceitos-estudados">Conceitos estudados</a></li>
+<li><a href="#resultado-final-do-laboratório"
+id="toc-resultado-final-do-laboratório">Resultado final do
+laboratório</a></li>
+<li><a href="#considerações-finais"
+id="toc-considerações-finais">Considerações finais</a></li>
+</ul>
+</nav>
+<h1 id="lab-port-forward-vpn-esp32-web-server-zerotier">Lab Port Forward
+VPN + ESP32 Web Server + ZeroTier</h1>
+<h2 id="objetivos">Objetivos</h2>
+<ul>
+<li>disponibilizar um web server ESP32 remotamente</li>
+<li>utilizar VPN overlay para acesso seguro</li>
+<li>implementar port forwarding via roteador</li>
+<li>estudar NAT e redirecionamento de portas</li>
+<li>integrar ESP32 com infraestrutura VPN</li>
+</ul>
+<hr />
+<h2 id="topologia">Topologia</h2>
+<figure>
+<img src="img3.png" alt="Topologia" />
+<figcaption aria-hidden="true">Topologia</figcaption>
+</figure>
+<hr />
+<h2 id="componentes">Componentes</h2>
+<table>
+<thead>
+<tr>
+<th>Dispositivo</th>
+<th>Função</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>TR1200</td>
+<td>Gateway VPN / NAT</td>
+</tr>
+<tr>
+<td>ESP32</td>
+<td>Web Server embarcado</td>
+</tr>
+<tr>
+<td>ZeroTier</td>
+<td>VPN overlay</td>
+</tr>
+<tr>
+<td>Smartphone</td>
+<td>Cliente remoto</td>
+</tr>
+<tr>
+<td>PC remoto</td>
+<td>Cliente VPN</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="objetivo-do-laboratório">Objetivo do laboratório</h2>
+<p>O objetivo deste laboratório foi disponibilizar remotamente um web
+server hospedado em um ESP32, utilizando uma rede VPN overlay via
+ZeroTier executando diretamente no roteador TR1200.</p>
+<p>Através de regras de port forwarding aplicadas na interface VPN do
+roteador, foi possível acessar o serviço HTTP do microcontrolador
+remotamente, sem necessidade de instalar ZeroTier diretamente no
+ESP32.</p>
+<hr />
+<h1 id="arquitetura-utilizada">Arquitetura utilizada</h1>
+<p>O cliente remoto conecta-se à rede virtual ZeroTier.</p>
+<p>O roteador TR1200 participa da VPN e realiza:</p>
+<ul>
+<li>roteamento VPN ↔︎ LAN</li>
+<li>NAT</li>
+<li>port forwarding</li>
+<li>acesso transparente aos dispositivos locais</li>
+</ul>
+<p>Fluxo simplificado:</p>
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode txt"><code class="sourceCode default"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>Cliente remoto</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>       ↓</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>Rede ZeroTier</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>       ↓</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>TR1200</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>       ↓</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>Port Forward</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>       ↓</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>ESP32 Web Server</span></code></pre></div>
+<hr />
+<h1 id="configuração-do-zerotier-no-roteador">Configuração do ZeroTier
+no roteador</h1>
+<h2 id="objetivo">Objetivo</h2>
+<p>Executar o cliente ZeroTier diretamente no TR1200, permitindo:</p>
+<ul>
+<li>acesso remoto à LAN</li>
+<li>roteamento transparente</li>
+<li>acesso a dispositivos sem cliente VPN</li>
+<li>integração entre VPN e rede local</li>
+</ul>
+<hr />
+<h2 id="configuração-realizada">Configuração realizada</h2>
+<p>Todo o processo foi realizado via interface LuCI/CudyOS.</p>
+<p>Menu utilizado:</p>
+<div class="sourceCode" id="cb2"><pre
+class="sourceCode txt"><code class="sourceCode default"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>VPN → ZeroTier</span></code></pre></div>
+<p>Etapas:</p>
+<ul>
+<li>ativação do cliente ZeroTier</li>
+<li>ingresso na rede virtual</li>
+<li>autorização do dispositivo na controller</li>
+<li>habilitação do roteamento LAN ↔︎ VPN</li>
+</ul>
+<hr />
+<h1 id="configuração-do-port-forward">Configuração do Port Forward</h1>
+<h2 id="objetivo-1">Objetivo</h2>
+<p>Redirecionar conexões recebidas pela interface VPN do roteador
+diretamente para o ESP32 na rede local.</p>
+<hr />
+<h2 id="configuração-via-luci">Configuração via LuCI</h2>
+<p>Menu utilizado:</p>
+<div class="sourceCode" id="cb3"><pre
+class="sourceCode txt"><code class="sourceCode default"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>Network → Port Forwards</span></code></pre></div>
+<p>Regra criada:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Campo</th>
+<th style="text-align: left;">Valor</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Nome</td>
+<td style="text-align: left;">ESP32_HTTP</td>
+</tr>
+<tr>
+<td style="text-align: left;">Protocolo</td>
+<td style="text-align: left;">TCP</td>
+</tr>
+<tr>
+<td style="text-align: left;">Interface</td>
+<td style="text-align: left;">VPN</td>
+</tr>
+<tr>
+<td style="text-align: left;">External Port</td>
+<td style="text-align: left;">8888</td>
+</tr>
+<tr>
+<td style="text-align: left;">Internal IP</td>
+<td style="text-align: left;">192.168.10.2</td>
+</tr>
+<tr>
+<td style="text-align: left;">Internal Port</td>
+<td style="text-align: left;">80</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h1 id="funcionamento">Funcionamento</h1>
+<h2 id="cliente-remoto">Cliente remoto</h2>
+<p>Conectado à rede ZeroTier:</p>
+<div class="sourceCode" id="cb4"><pre
+class="sourceCode txt"><code class="sourceCode default"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>http://IP_ZEROTIER_DO_ROTEADOR:8888</span></code></pre></div>
+<hr />
+<h2 id="fluxo-da-conexão">Fluxo da conexão</h2>
+<div class="sourceCode" id="cb5"><pre
+class="sourceCode txt"><code class="sourceCode default"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>Cliente remoto</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>    ↓</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>Interface ZeroTier do TR1200</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>    ↓</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>Port Forward TCP/80</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>    ↓</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>ESP32 192.168.10.2:80</span></code></pre></div>
+<hr />
+<h1 id="conceitos-estudados">Conceitos estudados</h1>
+<ul>
+<li>VPN overlay</li>
+<li>ZeroTier</li>
+<li>port forwarding</li>
+<li>NAT</li>
+<li>roteamento VPN ↔︎ LAN</li>
+<li>integração IoT + VPN</li>
+<li>acesso remoto</li>
+<li>infraestrutura OpenWrt</li>
+</ul>
+<hr />
+<h1 id="resultado-final-do-laboratório">Resultado final do
+laboratório</h1>
+<p>Recursos funcionando:</p>
+<ul>
+<li>VPN overlay operacional</li>
+<li>roteador participando da VPN</li>
+<li>acesso remoto transparente</li>
+<li>ESP32 acessível remotamente</li>
+<li>port forwarding via interface VPN</li>
+<li>integração ESP32 + ZeroTier</li>
+<li>gerenciamento via LuCI</li>
+</ul>
+<hr />
+<h1 id="considerações-finais">Considerações finais</h1>
+<p>Este laboratório demonstrou como um roteador Linux/OpenWrt pode atuar
+como gateway VPN para dispositivos embarcados que não possuem cliente
+VPN próprio.</p>
+<p>A utilização do ZeroTier diretamente no TR1200 permitiu integrar toda
+a rede local à VPN overlay, enquanto o port forwarding tornou possível
+publicar serviços específicos do ESP32 para acesso remoto
+controlado.</p>
+<p>A arquitetura utilizada aproxima-se de cenários reais de edge
+computing, IoT e acesso remoto seguro para dispositivos embarcados.</p>
+</body>
+</html>

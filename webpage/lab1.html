@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>lab1</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    svg {
+      height: auto;
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      white-space: pre-wrap;
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      border: none;
+      border-top: 1px solid #1a1a1a;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+    /* CSS for syntax highlighting */
+    html { -webkit-text-size-adjust: 100%; }
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      {   }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+    code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+    code span.at { color: #7d9029; } /* Attribute */
+    code span.bn { color: #40a070; } /* BaseN */
+    code span.bu { color: #008000; } /* BuiltIn */
+    code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #4070a0; } /* Char */
+    code span.cn { color: #880000; } /* Constant */
+    code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+    code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+    code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+    code span.dt { color: #902000; } /* DataType */
+    code span.dv { color: #40a070; } /* DecVal */
+    code span.er { color: #ff0000; font-weight: bold; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #40a070; } /* Float */
+    code span.fu { color: #06287e; } /* Function */
+    code span.im { color: #008000; font-weight: bold; } /* Import */
+    code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+    code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+    code span.op { color: #666666; } /* Operator */
+    code span.ot { color: #007020; } /* Other */
+    code span.pp { color: #bc7a00; } /* Preprocessor */
+    code span.sc { color: #4070a0; } /* SpecialChar */
+    code span.ss { color: #bb6688; } /* SpecialString */
+    code span.st { color: #4070a0; } /* String */
+    code span.va { color: #19177c; } /* Variable */
+    code span.vs { color: #4070a0; } /* VerbatimString */
+    code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+</head>
+<body>
+<nav id="TOC" role="doc-toc">
+<ul>
+<li><a href="#lab-zerotier-debian-vm-tr1200"
+id="toc-lab-zerotier-debian-vm-tr1200">Lab ZeroTier + Debian VM +
+TR1200</a>
+<ul>
+<li><a href="#objetivos" id="toc-objetivos">Objetivos</a></li>
+<li><a href="#topologia" id="toc-topologia">Topologia</a></li>
+<li><a href="#componentes" id="toc-componentes">Componentes</a></li>
+<li><a href="#provisionamento-debian"
+id="toc-provisionamento-debian">Provisionamento Debian</a>
+<ul>
+<li><a href="#instalação-básica" id="toc-instalação-básica">Instalação
+básica</a></li>
+<li><a href="#ferramentas-de-rede"
+id="toc-ferramentas-de-rede">Ferramentas de rede</a></li>
+<li><a href="#diagnóstico" id="toc-diagnóstico">Diagnóstico</a></li>
+<li><a href="#zerotier" id="toc-zerotier">ZeroTier</a></li>
+<li><a href="#web-server-e-ferramentas-de-desenvolvimento"
+id="toc-web-server-e-ferramentas-de-desenvolvimento">Web server e
+ferramentas de desenvolvimento</a></li>
+<li><a href="#configuração-de-ip-estático"
+id="toc-configuração-de-ip-estático">Configuração de IP
+estático</a></li>
+</ul></li>
+<li><a href="#configuração-da-rede"
+id="toc-configuração-da-rede">Configuração da Rede</a>
+<ul>
+<li><a href="#modemroteador-isp-em-modo-bridge"
+id="toc-modemroteador-isp-em-modo-bridge">1. Modem/roteador ISP em modo
+Bridge</a></li>
+<li><a href="#configuração-do-tr1200" id="toc-configuração-do-tr1200">2.
+Configuração do TR1200</a></li>
+<li><a href="#zerotier-no-roteador" id="toc-zerotier-no-roteador">3.
+ZeroTier no roteador</a></li>
+<li><a href="#compartilhamento-usb-nas"
+id="toc-compartilhamento-usb-nas">4. Compartilhamento USB / NAS</a></li>
+</ul></li>
+<li><a href="#resultado-final-do-laboratório"
+id="toc-resultado-final-do-laboratório">Resultado final do
+laboratório</a></li>
+</ul></li>
+</ul>
+</nav>
+<h1 id="lab-zerotier-debian-vm-tr1200">Lab ZeroTier + Debian VM +
+TR1200</h1>
+<h2 id="objetivos">Objetivos</h2>
+<ul>
+<li>acesso remoto via VPN overlay</li>
+<li>roteamento LAN ↔︎ VPN</li>
+<li>NAS simples via USB</li>
+<li>web server interno</li>
+<li>acesso transparente para dispositivos sem ZeroTier</li>
+</ul>
+<hr />
+<h2 id="topologia">Topologia</h2>
+<figure>
+<img src="img1.png" alt="Topologia" />
+<figcaption aria-hidden="true">Topologia</figcaption>
+</figure>
+<hr />
+<h2 id="componentes">Componentes</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Dispositivo</th>
+<th style="text-align: right;">Função</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">TR1200</td>
+<td style="text-align: right;">Gateway VPN</td>
+</tr>
+<tr>
+<td style="text-align: left;">VM Debian ARM64</td>
+<td style="text-align: right;">Serviços</td>
+</tr>
+<tr>
+<td style="text-align: left;">USB Storage</td>
+<td style="text-align: right;">NAS</td>
+</tr>
+<tr>
+<td style="text-align: left;">PC principal</td>
+<td style="text-align: right;">Cliente LAN</td>
+</tr>
+<tr>
+<td style="text-align: left;">Smartphone</td>
+<td style="text-align: right;">Cliente Remoto</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="provisionamento-debian">Provisionamento Debian</h2>
+<h3 id="instalação-básica">Instalação básica</h3>
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">su</span> <span class="at">-</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="ex">apt</span> update</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="ex">apt</span> install sudo</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="ex">usermod</span> <span class="at">-aG</span> sudo USER</span></code></pre></div>
+<h3 id="ferramentas-de-rede">Ferramentas de rede</h3>
+<div class="sourceCode" id="cb2"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> apt install net-tools</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> apt install tcpdump</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> apt install curl</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> apt install lynx</span></code></pre></div>
+<h3 id="diagnóstico">Diagnóstico</h3>
+<div class="sourceCode" id="cb3"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">ip</span> addr</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ps</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="ex">systemctl</span> status ssh</span></code></pre></div>
+<h3 id="zerotier">ZeroTier</h3>
+<div class="sourceCode" id="cb4"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">curl</span> <span class="at">-s</span> https://install.zerotier.com <span class="kw">|</span> <span class="fu">sudo</span> bash</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> zerotier-cli join NETWORK_ID</span></code></pre></div>
+<h3 id="web-server-e-ferramentas-de-desenvolvimento">Web server e
+ferramentas de desenvolvimento</h3>
+<div class="sourceCode" id="cb5"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="ex">busybox</span> httpd <span class="at">-f</span> <span class="at">-p</span> 8080 <span class="at">-h</span> . <span class="kw">&amp;</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> apt install python3 python3-pip</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> apt install snapd</span></code></pre></div>
+<h3 id="configuração-de-ip-estático">Configuração de IP estático</h3>
+<p>Em ambientes de laboratório e servidores é recomendado utilizar IP
+estático para:</p>
+<ul>
+<li>acesso previsível via SSH</li>
+<li>serviços web locais</li>
+<li>compartilhamento SMB/NAS</li>
+<li>VPNs e roteamento</li>
+<li>regras de firewall e VLAN</li>
+<li>acesso remoto via ZeroTier</li>
+</ul>
+<p><strong>Verificar interfaces de rede:</strong></p>
+<div class="sourceCode" id="cb6"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="ex">ip</span> addr</span></code></pre></div>
+<p><strong>Editar configuração de rede:</strong></p>
+<div class="sourceCode" id="cb7"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> nano /etc/network/interfaces</span></code></pre></div>
+<p><strong>Exemplo DHCP:</strong></p>
+<div class="sourceCode" id="cb8"><pre
+class="sourceCode ini"><code class="sourceCode ini"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="dt">auto enp0s8</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="dt">iface enp0s8 inet dhcp</span></span></code></pre></div>
+<p><strong>Exemplo IP estático:</strong></p>
+<div class="sourceCode" id="cb9"><pre
+class="sourceCode ini"><code class="sourceCode ini"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="dt">auto enp0s8</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="dt">iface enp0s8 inet static</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="dt">    address 192.168.10.100/24</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="dt">    gateway 192.168.10.1</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="dt">    dns-nameservers 1.1.1.1 8.8.8.8</span></span></code></pre></div>
+<p><strong>Reiniciar serviço de rede:</strong></p>
+<div class="sourceCode" id="cb10"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> systemctl restart networking</span></code></pre></div>
+<h2 id="configuração-da-rede">Configuração da Rede</h2>
+<h3 id="modemroteador-isp-em-modo-bridge">1. Modem/roteador ISP em modo
+Bridge</h3>
+<p><strong>Objetivo:</strong></p>
+<ul>
+<li>evitar double NAT</li>
+<li>permitir que o TR1200 seja o gateway principal</li>
+<li>centralizar DHCP, roteamento, VPN, firewall</li>
+</ul>
+<h3 id="configuração-do-tr1200">2. Configuração do TR1200</h3>
+<p><strong>Firmware utilizado</strong> CudyOS (baseado em Linux /
+LEDE/OpenWrt)</p>
+<p><strong>Kernel:</strong> Linux 4.4.140</p>
+<p><strong>Compilador:</strong> LEDE GCC 5.4.0</p>
+<h3 id="zerotier-no-roteador">3. ZeroTier no roteador</h3>
+<p><strong>Objetivo:</strong></p>
+<ul>
+<li>transformar o TR1200 em gateway VPN da LAN</li>
+<li>permitir acesso transparente sem instalar ZeroTier nos clientes
+locais</li>
+</ul>
+<p><strong>Configurações realizadas:</strong></p>
+<ul>
+<li>ativação do cliente ZeroTier no CudyOS</li>
+<li>ingresso na rede virtual</li>
+<li>habilitação do roteamento LAN - VPN</li>
+</ul>
+<p><strong>Referência oficial utilizada:</strong></p>
+<p>How to Remote Connect Cudy Router via ZeroTier
+(https://www.cudy.com/pt-br/blogs/faq/how-to-remote-connect-cudy-router-via-zerotier?utm_source=chatgpt.com)</p>
+<h3 id="compartilhamento-usb-nas">4. Compartilhamento USB / NAS</h3>
+<p><strong>Objetivo:</strong></p>
+<p>Disponibilizar armazenamento conectado via USB ao TR1200 para acesso
+compartilhado:</p>
+<ul>
+<li>na rede local (LAN)</li>
+<li>remotamente via VPN overlay (ZeroTier)</li>
+</ul>
+<p><strong>Serviço utilizado:</strong> Samba (SMB/CIFS)</p>
+<p><strong>Recursos disponibilizados:</strong></p>
+<ul>
+<li>armazenamento centralizado em rede</li>
+<li>compartilhamento de arquivos via SMB</li>
+<li>acesso local e remoto através da VPN</li>
+<li>compatibilidade multiplataforma</li>
+</ul>
+<p><strong>Referência oficial utilizada</strong></p>
+<p>How to Configure USB Sharing on Cudy Router
+(https://www.cudy.com/pt-br/blogs/faq/how-to-configure-usb-sharing-on-cudy-router?utm_source=chatgpt.com)</p>
+<h2 id="resultado-final-do-laboratório">Resultado final do
+laboratório</h2>
+<p>Recursos funcionando * Gateway VPN overlay * Clientes LAN acessando
+VPN sem ZeroTier * Web server Debian acessível remotamente * NAS via
+USB/Samba * Roteamento LAN ↔︎ VPN * Diagnóstico via tcpdump/traceroute *
+VM Debian para serviços</p>
+</body>
+</html>
