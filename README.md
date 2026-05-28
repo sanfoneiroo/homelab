@@ -16,5 +16,8 @@ Port forwarding VPN utilizando ZeroTier e exposição remota de web server ESP32
 ## Lab 4
 Serviços multimídia e automação doméstica usando CasaOS + Jellyfin.
 
+## Lab 5
+Infraestrutura de serviços do Linux através do `systemd` para automatizar a inicialização de aplicações e serviços durante o boot da VM Debian
+
 ## Ferramentas Pandoc
 Fluxo de conversão Markdown → HTML utilizando Pandoc e CSS GitHub Dark Mode.
