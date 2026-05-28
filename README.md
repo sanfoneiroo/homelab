@@ -13,5 +13,8 @@ Servidor DNS local utilizando dnsmasq em VM Debian integrado ao DHCP do OpenWrt.
 ## Lab 3
 Port forwarding VPN utilizando ZeroTier e exposição remota de web server ESP32.
 
+## Lab 4
+Serviços multimídia e automação doméstica usando CasaOS + Jellyfin.
+
 ## Ferramentas Pandoc
 Fluxo de conversão Markdown → HTML utilizando Pandoc e CSS GitHub Dark Mode.
