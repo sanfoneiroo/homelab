@@ -20,4 +20,4 @@ Serviços multimídia e automação doméstica usando CasaOS + Jellyfin.
 Infraestrutura de serviços do Linux através do `systemd` para automatizar a inicialização de aplicações e serviços durante o boot da VM Debian
 
 ## Ferramentas Pandoc
-Fluxo de conversão Markdown → HTML utilizando Pandoc e CSS GitHub Dark Mode.
+Fluxo de conversão Markdown → HTML utilizando Pandoc
