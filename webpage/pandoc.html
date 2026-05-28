@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>README</title>
+  <title>pandoc</title>
   <style>
     /* Default styles provided by pandoc.
     ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -256,8 +256,6 @@ id="toc-verificação-da-instalação">Verificação da instalação</a></li>
 </ul></li>
 <li><a href="#conversão-markdown-html"
 id="toc-conversão-markdown-html">Conversão Markdown → HTML</a></li>
-<li><a href="#conversão-recomendada"
-id="toc-conversão-recomendada">Conversão recomendada</a></li>
 <li><a href="#explicação-dos-parâmetros"
 id="toc-explicação-dos-parâmetros">Explicação dos parâmetros</a></li>
 <li><a href="#teste-local" id="toc-teste-local">Teste local</a>
@@ -299,20 +297,6 @@ class="sourceCode txt"><code class="sourceCode default"><span id="cb3-1"><a href
 <div class="sourceCode" id="cb4"><pre
 class="sourceCode bash"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pandoc</span> file.md <span class="at">-s</span> <span class="at">--toc</span> <span class="at">-o</span> file.html</span></code></pre></div>
 <hr />
-<h1 id="conversão-recomendada">Conversão recomendada</h1>
-<p>Conversão completa com:</p>
-<ul>
-<li>HTML standalone</li>
-<li>índice automático</li>
-<li>CSS GitHub Dark Mode</li>
-</ul>
-<div class="sourceCode" id="cb5"><pre
-class="sourceCode bash"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pandoc</span> lab1.md <span class="dt">\</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">-s</span> <span class="dt">\</span></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">--toc</span> <span class="dt">\</span></span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">-c</span> github-markdown-dark.css <span class="dt">\</span></span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">-o</span> lab1.html</span></code></pre></div>
-<hr />
 <h1 id="explicação-dos-parâmetros">Explicação dos parâmetros</h1>
 <table>
 <thead>
@@ -340,20 +324,20 @@ class="sourceCode bash"><code class="sourceCode bash"><span id="cb5-1"><a href="
 <h1 id="teste-local">Teste local</h1>
 <h2 id="abrir-diretamente-no-navegador">Abrir diretamente no
 navegador</h2>
-<div class="sourceCode" id="cb6"><pre
-class="sourceCode bash"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="ex">open</span> lab1.html</span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="ex">open</span> lab1.html</span></code></pre></div>
 <hr />
 <h1 id="fluxo-utilizado">Fluxo utilizado</h1>
-<div class="sourceCode" id="cb7"><pre
-class="sourceCode txt"><code class="sourceCode default"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>Markdown (.md)</span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>        ↓</span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>Pandoc</span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>        ↓</span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>HTML estático</span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>        ↓</span>
-<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>Upload para ESP32</span>
-<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>        ↓</span>
-<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>Portal técnico local</span></code></pre></div>
+<div class="sourceCode" id="cb6"><pre
+class="sourceCode txt"><code class="sourceCode default"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>Markdown (.md)</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>        ↓</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>Pandoc</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>        ↓</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>HTML estático</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>        ↓</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>Upload para ESP32</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>        ↓</span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>Portal técnico local</span></code></pre></div>
 <hr />
 <h1 id="resultado">Resultado</h1>
 <p>O HTML gerado possui:</p>
