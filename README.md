@@ -19,5 +19,8 @@ Serviços multimídia e automação doméstica usando CasaOS + Jellyfin.
 ## Lab 5
 Infraestrutura de serviços do Linux através do `systemd` para automatizar a inicialização de aplicações e serviços durante o boot da VM Debian
 
+## Lab 6
+Centralização do acesso aos serviços da rede local sem a necessidade de memorizar endereços IP e portas, utilizando NGINX e REVERSE PROXY.
+
 ## Ferramentas Pandoc
 Fluxo de conversão Markdown → HTML utilizando Pandoc

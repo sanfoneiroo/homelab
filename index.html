@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Homelab Dashboard</title>
+
+<style>
+body {
+    font-family: Arial, sans-serif;
+    background: #111827;
+    color: white;
+    margin: 0;
+    padding: 40px;
+}
+
+.container {
+    max-width: 1000px;
+    margin: auto;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.search-box {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 50px;
+}
+
+.search-box input {
+    width: 500px;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+}
+
+.search-box button {
+    padding: 12px 20px;
+    border: none;
+    border-radius: 8px;
+    background: #2563eb;
+    color: white;
+    cursor: pointer;
+}
+
+.section-title {
+    margin-top: 30px;
+    margin-bottom: 15px;
+    color: #9ca3af;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(180px,1fr));
+    gap: 15px;
+}
+
+.card {
+    background: #1f2937;
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    transition: 0.2s;
+}
+
+.card:hover {
+    background: #374151;
+    transform: translateY(-3px);
+}
+
+.card a {
+    color: white;
+    text-decoration: none;
+    display: block;
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+
+<h1>Homelab Dashboard</h1>
+
+<form class="search-box"
+      action="https://www.google.com/search"
+      method="GET"
+      target="_blank">
+
+    <input
+        type="text"
+        name="q"
+        placeholder="Pesquisar no Google..."
+        autocomplete="off">
+
+    <button type="submit">Pesquisar</button>
+
+</form>
+
+<h2 class="section-title">Serviços Locais</h2>
+
+<div class="grid">
+
+    <div class="card">
+        <a href="http://casaos.lab">CasaOS</a>
+    </div>
+
+    <div class="card">
+        <a href="http://netdata.lab">Netdata</a>
+    </div>
+
+    <div class="card">
+        <a href="http://esp32.lab">ESP32</a>
+    </div>
+
+    <div class="card">
+        <a href="http://router.lab">Router</a>
+    </div>
+
+</div>
+
+<h2 class="section-title">Serviços WAN</h2>
+
+<div class="grid">
+
+    <div class="card">
+        <a href="https://chatgpt.com" target="_blank">
+            ChatGPT
+        </a>
+    </div>
+
+    <div class="card">
+        <a href="https://blog.eletrogate.com" target="_blank">
+            Blog Eletrogate
+        </a>
+    </div>
+
+    <div class="card">
+        <a href="https://mail.google.com" target="_blank">
+            Gmail
+        </a>
+    </div>
+
+    <div class="card">
+        <a href="https://github.com/sanfoneiroo" target="_blank">
+            GitHub
+        </a>
+    </div>
+
+</div>
+
+</div>
+
+</body>
+</html>
