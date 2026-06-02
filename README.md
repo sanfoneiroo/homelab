@@ -22,5 +22,8 @@ Infraestrutura de serviços do Linux através do `systemd` para automatizar a in
 ## Lab 6
 Centralização do acesso aos serviços da rede local sem a necessidade de memorizar endereços IP e portas, utilizando NGINX e REVERSE PROXY.
 
+## Lab 7
+Criar um ambiente de desenvolvimento remoto acessível de qualquer lugar através de VPN e navegador web.
+
 ## Ferramentas Pandoc
-Fluxo de conversão Markdown → HTML utilizando Pandoc
+Fluxo de conversão Markdown → HTML utilizando Pandoc.
