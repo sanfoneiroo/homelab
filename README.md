@@ -25,5 +25,11 @@ Centralização do acesso aos serviços da rede local sem a necessidade de memor
 ## Lab 7
 Criar um ambiente de desenvolvimento remoto acessível de qualquer lugar através de VPN e navegador web.
 
+## Lab 8
+Inicialização automática de uma máquina virtual Debian durante o processo de boot da host MacOS.
+
+## Lab 9
+Implantar um servidor Git privado utilizando Gitea para centralizar o armazenamento de projetos, documentação e configurações do homelab.
+
 ## Ferramentas Pandoc
 Fluxo de conversão Markdown → HTML utilizando Pandoc.
